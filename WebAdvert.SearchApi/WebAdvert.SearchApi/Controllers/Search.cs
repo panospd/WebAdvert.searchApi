@@ -17,7 +17,7 @@ namespace WebAdvert.SearchApi.Controllers
         {
             _searchService = searchService;
         }
-
+        [HttpGet("{keyword}")]
         public async Task<List<AdvertType>> Get(string keyword)
         {
             return await _searchService.Search(keyword);

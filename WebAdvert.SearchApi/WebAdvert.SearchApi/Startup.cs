@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WebAdvert.SearchApi.Extentions;
+using WebAdvert.SearchApi.Services;
 
 namespace WebAdvert.SearchApi
 {
@@ -27,6 +28,7 @@ namespace WebAdvert.SearchApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddElasticSearch(Configuration);
+            services.AddTransient<ISearchService, SearchService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

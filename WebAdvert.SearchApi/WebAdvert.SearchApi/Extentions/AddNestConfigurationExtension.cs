@@ -18,7 +18,6 @@ namespace WebAdvert.SearchApi.Extentions
 
             var connectionSettings = new ConnectionSettings(new Uri(elasticSearchUrl))
                 .DefaultIndex("adverts")
-                .DefaultTypeName("advert")
                 .DefaultMappingFor<AdvertType>(advert => advert.IdProperty(p => p.Id));
 
             var client = new ElasticClient(connectionSettings);
