@@ -18,7 +18,6 @@ namespace WebAdvert.SearchApi.Services
 
         public async Task<List<AdvertType>> Search(string keyword)
         {
-            var health = _client.CatHealth();
             var searchResponse = await _client.SearchAsync<AdvertType>(search =>
                 search.Query(q => q.Term(f => f.Title, keyword.ToLower())));
 
